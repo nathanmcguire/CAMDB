@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Asset - Flask App{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h1 class="mb-4">Edit Asset</h1>
+        <form method="POST">
+            <div class="form-group">
+                <label for="name">Asset Name:</label>
+                <input type="text" id="name" name="name" class="form-control" value="{{ asset.name }}" required>
+            </div>
+            <button type="submit" class="btn btn-success">Update Asset</button>
+        </form>
+        <a href="{{ url_for('assets.list') }}" class="btn btn-secondary mt-3">Back to Asset List</a>
+    </div>
+{% endblock %}

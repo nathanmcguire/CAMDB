@@ -1,0 +1,19 @@
+<!-- templates/create_control.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Control</title>
+</head>
+<body>
+    <h1>Create New Control</h1>
+    <form method="POST">
+        <label for="name">Control Name:</label>
+        <input type="text" id="name" name="name" required>
+        <button type="submit">Create</button>
+    </form>
+    <!-- Corrected URL for the back link using the Blueprint -->
+    <a href="{{ url_for('controls.list') }}">Back to Control List</a>
+</body>
+</html>
