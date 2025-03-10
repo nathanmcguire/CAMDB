@@ -1,7 +1,8 @@
 import os
+import secrets
 
 class Config:
-    SECRET_KEY = os.getenv("SECRET_KEY", "fallback_secret_key")  # Uses .env, falls back if missing
-    SQLALCHEMY_DATABASE_URI = os.getenv("DATABASE_URL", "sqlite:///cmdb.db")
+    SECRET_KEY = os.environ.get('SECRET_KEY') or secrets.token_hex(16)
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or 'sqlite:///cmdb.db'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     TIMEZONE = 'America/Chicago'

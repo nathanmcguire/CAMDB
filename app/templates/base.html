@@ -24,10 +24,30 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('controls.list') }}">Controls</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('microblog.index') }}">Microblog</a>
+                </li>
+                {% if current_user.is_anonymous %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('users.login') }}">Login</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('users.logout') }}">Logout</a>
+                </li>
+                {% endif %}
             </ul>
         </div>
     </nav>
-
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
     <!-- Content Block -->
     {% block content %}
     {% endblock %}

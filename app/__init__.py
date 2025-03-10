@@ -4,6 +4,9 @@ from flask_migrate import Migrate
 from flask_login import LoginManager
 from dotenv import load_dotenv
 from app.utils import format_datetime
+import os
+import sqlalchemy as sa
+import sqlalchemy.orm as so
 
 # Load environment variables from .env
 load_dotenv()
@@ -26,20 +29,36 @@ def create_app(config_class=None):
     migrate.init_app(app, db)
     login_manager.init_app(app)
 
+    login_manager.login_view = 'users.login'
+
     # Register Blueprints
     from app.controllers.index import index_bp
     from app.controllers.assets import assets_bp
     from app.controllers.controls import controls_bp
-    from app.controllers.user import user_bp
+    from app.controllers.users import users_bp
     from app.controllers.dashboard import dashboard_bp
+    from app.controllers.microblog import microblog_bp
+    from app.controllers.posts import posts_bp
     app.register_blueprint(index_bp)
     app.register_blueprint(assets_bp)
     app.register_blueprint(controls_bp)
-    app.register_blueprint(user_bp)
+    app.register_blueprint(users_bp)
     app.register_blueprint(dashboard_bp)
+    app.register_blueprint(microblog_bp)
+    app.register_blueprint(posts_bp)
 
     # Create all tables
     with app.app_context():
         db.create_all()
 
+    @app.shell_context_processor
+    def make_shell_context():
+        return {'sa': sa, 'so': so, 'db': db, 'User': User, 'Post': Post}
+
     return app
+
+from app.models import User, Post
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
