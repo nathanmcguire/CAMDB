@@ -20,12 +20,16 @@ FlaskCMDB is a simple Configuration Management Database (CMDB) application built
 2. Create and activate a virtual environment:
     ```sh
     python3 -m venv venv
+    # macOS / Linux
     source venv/bin/activate
+    # Windows
+    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+    .\venv\Scripts\activate
     ```
 
 3. Install the dependencies:
     ```sh
-    pip install -r requirements.txt
+    pip3 install -r requirements.txt
     ```
 
 4. Set up the database:
@@ -38,6 +42,8 @@ FlaskCMDB is a simple Configuration Management Database (CMDB) application built
 5. Run the application:
     ```sh
     flask run
+    #or
+    python3 run.py
     ```
 
 ## Usage

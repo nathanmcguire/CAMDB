@@ -1,0 +1,236 @@
+{
+    "users": [
+        {
+            "username": "susan",
+            "email": "susan@example.com",
+            "password": "pbkdf2:sha256:1000000$CzquSWDGpm3yD0dl$d86fa93cc364532a94d3b8416f977d0402327caa47837a14b8e118ba0f9cd693"
+        },
+        {
+            "username": "nathan",
+            "email": "nathan@ncm.me",
+            "password": "pbkdf2:sha256:1000000$Tsf75h5jiKWrhgPc$05ee86328609f380dd4acc20330b4c58f363cf5fae6f587e14129e871029d0b6"
+        }
+    ],
+    "posts": [],
+    "controls": [
+        {
+            "number": "1",
+            "name": "Inventory and Control of Enterprise Assets",
+            "description": "Actively manage (inventory, track, and correct) all enterprise assets (end-user devices, including portable and mobile; network devices; non-computing/Internet of Things (IoT) devices; and servers) connected to the infrastructure physically, virtually, remotely, and those within cloud environments, to accurately know the totality of assets that need to be monitored and protected within the enterprise. This will also support identifying unauthorized and unmanaged assets to remove or remediate.",
+            "framework_id": 1,
+            "created": "2025-03-09T18:02:21",
+            "updated": "2025-03-10T20:21:55",
+            "archived": null
+        },
+        {
+            "number": "2",
+            "name": "Inventory and Control of Software Assets",
+            "description": "Actively manage (inventory, track, and correct) all software (operating systems and applications) on the network so that only authorized software is installed and can execute, and that unauthorized and unmanaged software is found and prevented from installation or execution.",
+            "framework_id": 1,
+            "created": "2025-03-09T18:02:21",
+            "updated": "2025-03-10T20:22:19",
+            "archived": null
+        },
+        {
+            "number": "3",
+            "name": "Data Protection",
+            "description": "Develop processes and technical controls to identify, classify, securely handle, retain, and dispose of data.",
+            "framework_id": 1,
+            "created": "2025-03-09T18:02:21",
+            "updated": "2025-03-10T20:22:41",
+            "archived": null
+        },
+        {
+            "number": "4",
+            "name": "Secure Configuration of Enterprise Assets and Software",
+            "description": "Establish and maintain the secure configuration of enterprise assets (end-user devices, including portable and mobile; network devices; non-computing/IoT devices; and servers) and software (operating systems and applications).",
+            "framework_id": 1,
+            "created": "2025-03-09T18:02:21",
+            "updated": "2025-03-10T20:23:00",
+            "archived": null
+        },
+        {
+            "number": "5",
+            "name": "Account Management",
+            "description": "Use processes and tools to assign and manage authorization to credentials for user accounts, including administrator accounts, as well as service accounts, to enterprise assets and software.",
+            "framework_id": 1,
+            "created": "2025-03-09T18:02:21",
+            "updated": "2025-03-10T20:23:26",
+            "archived": null
+        },
+        {
+            "number": "6",
+            "name": "Access Control Management",
+            "description": "Use processes and tools to create, assign, manage, and revoke access credentials and privileges for user, administrator, and service accounts for enterprise assets and software.",
+            "framework_id": 1,
+            "created": "2025-03-09T18:02:21",
+            "updated": "2025-03-10T20:23:38",
+            "archived": null
+        },
+        {
+            "number": "7",
+            "name": "Continuous Vulnerability Management",
+            "description": "Develop a plan to continuously assess and track vulnerabilities on all enterprise assets within the enterprise\u2019s infrastructure, in order to remediate, and minimize, the window of opportunity for attackers. Monitor public and private industry sources for new threat and vulnerability information.",
+            "framework_id": 1,
+            "created": "2025-03-09T18:02:21",
+            "updated": "2025-03-10T20:23:51",
+            "archived": null
+        },
+        {
+            "number": "8",
+            "name": "Audit Log Management",
+            "description": "Collect, alert, review, and retain audit logs of events that could help detect, understand, or recover from an attack.",
+            "framework_id": 1,
+            "created": "2025-03-09T18:02:21",
+            "updated": "2025-03-10T20:24:00",
+            "archived": null
+        },
+        {
+            "number": "9",
+            "name": "Email and Web Browser Protections",
+            "description": "Improve protections and detections of threats from email and web vectors, as these are opportunities for attackers to manipulate human behavior through direct engagement.",
+            "framework_id": 1,
+            "created": "2025-03-09T18:02:21",
+            "updated": "2025-03-10T20:24:12",
+            "archived": null
+        },
+        {
+            "number": "10",
+            "name": "Malware Defenses",
+            "description": "Prevent or control the installation, spread, and execution of malicious applications, code, or scripts on enterprise assets.",
+            "framework_id": 1,
+            "created": "2025-03-09T18:02:21",
+            "updated": "2025-03-10T20:24:25",
+            "archived": null
+        },
+        {
+            "number": "11",
+            "name": "Data Recovery",
+            "description": "Prevent or control the installation, spread, and execution of malicious applications, code, or scripts on enterprise assets.",
+            "framework_id": 1,
+            "created": "2025-03-09T18:02:21",
+            "updated": "2025-03-10T20:24:37",
+            "archived": null
+        },
+        {
+            "number": "12",
+            "name": "Network Infrastructure Management",
+            "description": "Prevent or control the installation, spread, and execution of malicious applications, code, or scripts on enterprise assets.",
+            "framework_id": 1,
+            "created": "2025-03-09T18:02:21",
+            "updated": "2025-03-10T20:24:56",
+            "archived": null
+        },
+        {
+            "number": "13",
+            "name": "Network Monitoring and Defense",
+            "description": "Prevent or control the installation, spread, and execution of malicious applications, code, or scripts on enterprise assets.",
+            "framework_id": 1,
+            "created": "2025-03-09T18:02:21",
+            "updated": "2025-03-10T20:25:09",
+            "archived": null
+        },
+        {
+            "number": "14",
+            "name": "Security Awareness and Skills Training",
+            "description": "Prevent or control the installation, spread, and execution of malicious applications, code, or scripts on enterprise assets.",
+            "framework_id": 1,
+            "created": "2025-03-09T18:02:21",
+            "updated": "2025-03-10T20:25:29",
+            "archived": null
+        },
+        {
+            "number": "15",
+            "name": "Service Provider Management",
+            "description": "Prevent or control the installation, spread, and execution of malicious applications, code, or scripts on enterprise assets.",
+            "framework_id": 1,
+            "created": "2025-03-09T18:02:21",
+            "updated": "2025-03-10T20:25:44",
+            "archived": null
+        },
+        {
+            "number": "16",
+            "name": "Application Software Security",
+            "description": "Prevent or control the installation, spread, and execution of malicious applications, code, or scripts on enterprise assets.",
+            "framework_id": 1,
+            "created": "2025-03-09T18:02:21",
+            "updated": "2025-03-10T20:25:55",
+            "archived": null
+        },
+        {
+            "number": "17",
+            "name": "Incident Response Management",
+            "description": "Prevent or control the installation, spread, and execution of malicious applications, code, or scripts on enterprise assets.",
+            "framework_id": 1,
+            "created": "2025-03-09T18:02:21",
+            "updated": "2025-03-10T20:26:05",
+            "archived": null
+        },
+        {
+            "number": "18",
+            "name": "Penetration Testing",
+            "description": "Prevent or control the installation, spread, and execution of malicious applications, code, or scripts on enterprise assets.",
+            "framework_id": 1,
+            "created": "2025-03-09T18:02:21",
+            "updated": "2025-03-10T20:26:18",
+            "archived": null
+        }
+    ],
+    "asset_types": [
+        {
+            "name": "Devices",
+            "description": "",
+            "created": "2025-03-10T20:51:29",
+            "updated": "2025-03-10T20:51:29"
+        },
+        {
+            "name": "Software",
+            "description": "",
+            "created": "2025-03-10T20:51:40",
+            "updated": "2025-03-10T20:51:40"
+        },
+        {
+            "name": "Data",
+            "description": "",
+            "created": "2025-03-10T20:51:48",
+            "updated": "2025-03-10T20:51:48"
+        },
+        {
+            "name": "Documentation",
+            "description": "",
+            "created": "2025-03-10T20:51:57",
+            "updated": "2025-03-10T20:51:57"
+        },
+        {
+            "name": "Users",
+            "description": "",
+            "created": "2025-03-10T20:52:05",
+            "updated": "2025-03-10T20:52:05"
+        },
+        {
+            "name": "Network",
+            "description": "",
+            "created": "2025-03-10T20:52:20",
+            "updated": "2025-03-10T20:52:20"
+        }
+    ],
+    "assets": [],
+    "control_frameworks": [
+        {
+            "name": "CIS Controls",
+            "description": "",
+            "created": "2025-03-10T19:28:19",
+            "updated": "2025-03-10T19:28:19"
+        }
+    ],
+    "safeguards": [
+        {
+            "name": "Prevent or control the installation, spread, and execution of malicious applications, code, or scripts on enterprise assets.",
+            "description": "Prevent or control the installation, spread, and execution of malicious applications, code, or scripts on enterprise assets.",
+            "control_id": 1,
+            "created": "2025-03-10T20:28:29",
+            "updated": "2025-03-10T20:28:29",
+            "archived": null
+        }
+    ]
+}

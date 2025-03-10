@@ -34,14 +34,20 @@ def create_app(config_class=None):
     # Register Blueprints
     from app.controllers.index import index_bp
     from app.controllers.assets import assets_bp
+    from app.controllers.asset_types import asset_types_bp
     from app.controllers.controls import controls_bp
+    from app.controllers.control_frameworks import control_frameworks_bp
+    from app.controllers.safeguards import safeguards_bp
     from app.controllers.users import users_bp
     from app.controllers.dashboard import dashboard_bp
     from app.controllers.microblog import microblog_bp
     from app.controllers.posts import posts_bp
     app.register_blueprint(index_bp)
     app.register_blueprint(assets_bp)
+    app.register_blueprint(asset_types_bp)
     app.register_blueprint(controls_bp)
+    app.register_blueprint(control_frameworks_bp)
+    app.register_blueprint(safeguards_bp)
     app.register_blueprint(users_bp)
     app.register_blueprint(dashboard_bp)
     app.register_blueprint(microblog_bp)

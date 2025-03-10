@@ -1,0 +1,22 @@
+<!-- filepath: c:\Users\nmcguire\Documents\GitHub\FlaskCMDB\app\templates\control_frameworks\create.html -->
+{% extends "base.html" %}
+
+{% block title %}Create Control Framework - Flask App{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h1 class="mb-4">Create Control Framework</h1>
+        <form action="{{ url_for('control_frameworks.create') }}" method="post">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <input type="text" id="description" name="description" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">Create</button>
+        </form>
+        <a href="{{ url_for('control_frameworks.list') }}" class="btn btn-secondary mt-3">Back to List</a>
+    </div>
+{% endblock %}

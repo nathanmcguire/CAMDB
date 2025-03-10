@@ -1,19 +1,34 @@
 <!-- templates/edit_control.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Control</title>
-</head>
-<body>
-    <h1>Edit Control</h1>
-    <form method="POST">
-        <label for="name">Control Name:</label>
-        <input type="text" id="name" name="name" value="{{ control.name }}" required>
-        <button type="submit">Update</button>
-    </form>
-    <!-- Corrected URL for the back link using the Blueprint -->
-    <a href="{{ url_for('controls.list') }}">Back to Control List</a>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}Edit Control - Flask App{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h1 class="mb-4">Edit Control</h1>
+        <form action="{{ url_for('controls.edit', id=control.id) }}" method="post">
+            <div class="form-group">
+                <label for="number">Number:</label>
+                <input type="text" id="number" name="number" class="form-control" value="{{ control.number }}" required>
+            </div>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" class="form-control" value="{{ control.name }}" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" class="form-control" rows="4">{{ control.description }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="framework_id">Framework:</label>
+                <select id="framework_id" name="framework_id" class="form-control" required>
+                    {% for framework in frameworks %}
+                        <option value="{{ framework.id }}" {% if framework.id == control.framework_id %}selected{% endif %}>{{ framework.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+        <a href="{{ url_for('controls.list') }}" class="btn btn-secondary mt-3">Back to List</a>
+    </div>
+{% endblock %}

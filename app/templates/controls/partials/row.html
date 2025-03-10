@@ -1,14 +1,16 @@
 <!-- controls/partials/row.html -->
 <tr>
-    <td>{{ control.name }}</td>
+    <td>{{ control.number }}</td>
+    <td title="{{ control.description }}">{{ control.name }}</td>
+    <td>{{ control.framework.name }}</td>
     <td>
         <a href="{{ url_for('controls.edit', id=control.id) }}" class="btn btn-warning btn-sm">
             <i class="fas fa-edit"></i>
         </a>
-        <a href="{{ url_for('controls.delete', id=control.id) }}" 
-           class="btn btn-danger btn-sm" 
-           onclick="return confirm('Are you sure you want to delete this control?')">
-            <i class="fas fa-trash-alt"></i>
-        </a>
+        <form action="{{ url_for('controls.delete', id=control.id) }}" method="post" style="display:inline;">
+            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this control?')">
+                <i class="fas fa-trash-alt"></i>
+            </button>
+        </form>
     </td>
 </tr>

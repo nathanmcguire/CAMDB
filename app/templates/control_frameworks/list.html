@@ -1,0 +1,46 @@
+<!-- filepath: c:\Users\nmcguire\Documents\GitHub\FlaskCMDB\app\templates\control_frameworks\list.html -->
+{% extends "base.html" %}
+
+{% block title %}Control Framework List - Flask App{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h1 class="mb-4">Control Framework List</h1>
+        
+        <a href="{{ url_for('control_frameworks.create') }}" class="btn btn-primary mb-3">
+            <i class="fas fa-plus"></i> Create
+        </a>
+        
+        <table class="table table-striped table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for control_framework in control_frameworks %}
+                    <tr>
+                        <td>{{ control_framework.name }}</td>
+                        <td>{{ control_framework.description }}</td>
+                        <td>
+                            <a href="{{ url_for('control_frameworks.edit', id=control_framework.id) }}" class="btn btn-warning btn-sm">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <form action="{{ url_for('control_frameworks.delete', id=control_framework.id) }}" method="post" style="display:inline;">
+                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this framework?')">
+                                    <i class="fas fa-trash-alt"></i>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="3" class="text-center">No control frameworks found.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

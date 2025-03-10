@@ -1,0 +1,25 @@
+<!-- app\templates\safeguards\edit.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Safeguard</title>
+</head>
+<body>
+    <h1>Edit Safeguard</h1>
+    <form action="{{ url_for('safeguards.update', id=safeguard.id) }}" method="post">
+        <input type="hidden" name="_method" value="PUT">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="{{ safeguard.name }}" required>
+        <br>
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description" value="{{ safeguard.description }}">
+        <br>
+        <label for="control_id">Control ID:</label>
+        <input type="number" id="control_id" name="control_id" value="{{ safeguard.control_id }}" required>
+        <br>
+        <button type="submit">Update</button>
+    </form>
+    <a href="{{ url_for('safeguards.lis') }}">Back to List</a>
+</body>
+</html>
