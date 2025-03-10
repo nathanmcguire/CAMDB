@@ -46,6 +46,8 @@ FlaskCMDB is a simple Configuration Management Database (CMDB) application built
 2. Register a new user account or log in with an existing account.
 3. Start managing your configuration items.
 
+
+
 ## Contributing
 
 Contributions are welcome! Please fork the repository and submit a pull request.

@@ -55,6 +55,9 @@ def create_app(config_class=None):
     def make_shell_context():
         return {'sa': sa, 'so': so, 'db': db, 'User': User, 'Post': Post}
 
+    from app.cli import register_commands
+    register_commands(app)
+
     return app
 
 from app.models import User, Post
