@@ -7,6 +7,8 @@ from app.utils import format_datetime
 import os
 import sqlalchemy as sa
 import sqlalchemy.orm as so
+import logging
+from logging.handlers import SMTPHandler, RotatingFileHandler
 
 # Load environment variables from .env
 load_dotenv()
@@ -42,6 +44,7 @@ def create_app(config_class=None):
     from app.controllers.dashboard import dashboard_bp
     from app.controllers.microblog import microblog_bp
     from app.controllers.posts import posts_bp
+    from app.controllers.errors import errors_bp
     app.register_blueprint(index_bp)
     app.register_blueprint(assets_bp)
     app.register_blueprint(asset_types_bp)
@@ -52,6 +55,7 @@ def create_app(config_class=None):
     app.register_blueprint(dashboard_bp)
     app.register_blueprint(microblog_bp)
     app.register_blueprint(posts_bp)
+    app.register_blueprint(errors_bp)
 
     # Create all tables
     with app.app_context():
@@ -59,14 +63,18 @@ def create_app(config_class=None):
 
     @app.shell_context_processor
     def make_shell_context():
-        return {'sa': sa, 'so': so, 'db': db, 'User': User, 'Post': Post}
+        return {'sa': sa, 'so': so, 'db': db, 'User': User, 'Post': Post, 'Control': Control, 'AssetType': AssetType, 'Asset': Asset, 'ControlFramework': ControlFramework, 'Safeguard': Safeguard}
 
     from app.cli import register_commands
     register_commands(app)
 
+    # Configure logging
+    from app.controllers.logging import configure_logging
+    configure_logging(app)
+
     return app
 
-from app.models import User, Post
+from app.models import User, Post, Control, AssetType, Asset, ControlFramework, Safeguard
 
 @login_manager.user_loader
 def load_user(user_id):
