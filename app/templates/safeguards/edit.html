@@ -1,25 +1,57 @@
-<!-- app\templates\safeguards\edit.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Edit Safeguard</title>
-</head>
-<body>
-    <h1>Edit Safeguard</h1>
-    <form action="{{ url_for('safeguards.update', id=safeguard.id) }}" method="post">
-        <input type="hidden" name="_method" value="PUT">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" value="{{ safeguard.name }}" required>
-        <br>
-        <label for="description">Description:</label>
-        <input type="text" id="description" name="description" value="{{ safeguard.description }}">
-        <br>
-        <label for="control_id">Control ID:</label>
-        <input type="number" id="control_id" name="control_id" value="{{ safeguard.control_id }}" required>
-        <br>
-        <button type="submit">Update</button>
-    </form>
-    <a href="{{ url_for('safeguards.lis') }}">Back to List</a>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}Edit Safeguard - Flask App{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h1 class="mb-4">Edit Safeguard</h1>
+        <form action="{{ url_for('safeguards.edit', id=safeguard.id) }}" method="post">
+            <div class="form-group">
+                <label for="control_id">Control:</label>
+                <select id="control_id" name="control_id" class="form-control" required>
+                    {% for control in controls %}
+                        <option value="{{ control.id }}" {% if control.id == safeguard.control_id %}selected{% endif %}>{{ control.framework.number }}.{{ control.number }} {{ control.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="number">Number:</label>
+                <input type="text" id="number" name="number" class="form-control" value="{{ safeguard.number }}">
+            </div>
+            <div class="form-group">
+                <label for="asset_type_id">Asset Type:</label>
+                <select id="asset_type_id" name="asset_type_id" class="form-control">
+                    {% for asset_type in asset_types %}
+                        <option value="{{ asset_type.id }}" {% if asset_type.id == safeguard.asset_type_id %}selected{% endif %}>{{ asset_type.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="security_function_id">Security Function:</label>
+                <select id="security_function_id" name="security_function_id" class="form-control">
+                    {% for security_function in security_functions %}
+                        <option value="{{ security_function.id }}" {% if security_function.id == safeguard.security_function_id %}selected{% endif %}>{{ security_function.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" class="form-control" value="{{ safeguard.name }}" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" class="form-control" rows="4">{{ safeguard.description }}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="implementation_group_id">Implementation Group:</label>
+                <select id="implementation_group_id" name="implementation_group_id" class="form-control">
+                    {% for implementation_group in implementation_groups %}
+                        <option value="{{ implementation_group.id }}" {% if implementation_group.id == safeguard.implementation_group_id %}selected{% endif %}>{{ implementation_group.framework.number }} - {{ implementation_group.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+        <a href="{{ url_for('safeguards.list') }}" class="btn btn-secondary mt-3">Back to List</a>
+    </div>
+{% endblock %}

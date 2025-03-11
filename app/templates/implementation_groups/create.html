@@ -1,12 +1,19 @@
-<!-- filepath: c:\Users\nmcguire\Documents\GitHub\FlaskCMDB\app\templates\control_frameworks\create.html -->
 {% extends "base.html" %}
 
-{% block title %}Create Control Framework - Flask App{% endblock %}
+{% block title %}Create Implementation Group - Flask App{% endblock %}
 
 {% block content %}
     <div class="container mt-4">
-        <h1 class="mb-4">Create Control Framework</h1>
-        <form action="{{ url_for('control_frameworks.create') }}" method="post">
+        <h1 class="mb-4">Create Implementation Group</h1>
+        <form action="{{ url_for('implementation_groups.create') }}" method="post">
+            <div class="form-group">
+                <label for="framework_id">Framework:</label>
+                <select id="framework_id" name="framework_id" class="form-control" required>
+                    {% for framework in frameworks %}
+                        <option value="{{ framework.id }}">{{ framework.number }} - {{ framework.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
             <div class="form-group">
                 <label for="number">Number:</label>
                 <input type="text" id="number" name="number" class="form-control">
@@ -21,6 +28,6 @@
             </div>
             <button type="submit" class="btn btn-primary">Create</button>
         </form>
-        <a href="{{ url_for('control_frameworks.list') }}" class="btn btn-secondary mt-3">Back to List</a>
+        <a href="{{ url_for('implementation_groups.list') }}" class="btn btn-secondary mt-3">Back to List</a>
     </div>
 {% endblock %}

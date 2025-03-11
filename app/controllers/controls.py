@@ -16,14 +16,14 @@ def list():
 @controls_bp.route('/controls/create', methods=['GET', 'POST'])
 def create():
     if request.method == 'POST':
-        control_number = request.form['number']
+        number = request.form['number']
         control_name = request.form['name']
-        description = request.form['description']
+        description = request.form.get('description')
         framework_id = request.form['framework_id']
-        if not control_number or not control_name or not framework_id:
+        if not control_name:
             frameworks = ControlFramework.query.all()
-            return render_template('controls/create.html', frameworks=frameworks, error="Control number, name, and framework ID are required.")
-        new_control = Control(number=control_number, name=control_name, description=description, framework_id=framework_id)
+            return render_template('controls/create.html', frameworks=frameworks, error="Control name is required.")
+        new_control = Control(number=number, name=control_name, description=description, framework_id=framework_id)
         db.session.add(new_control)
         db.session.commit()
         return redirect(url_for('controls.list'))  # Redirecting to the list of controls
@@ -39,7 +39,7 @@ def edit(id):
     if request.method == 'POST':
         control.number = request.form['number']
         control.name = request.form['name']
-        control.description = request.form['description']
+        control.description = request.form.get('description')
         control.framework_id = request.form['framework_id']
         db.session.commit()
         return redirect(url_for('controls.list'))  # Redirecting to the list of controls

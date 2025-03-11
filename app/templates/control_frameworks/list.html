@@ -14,6 +14,7 @@
         <table class="table table-striped table-bordered">
             <thead class="thead-dark">
                 <tr>
+                    <th>Number</th>
                     <th>Name</th>
                     <th>Description</th>
                     <th>Actions</th>
@@ -22,6 +23,7 @@
             <tbody>
                 {% for control_framework in control_frameworks %}
                     <tr>
+                        <td>{{ control_framework.number }}</td>
                         <td>{{ control_framework.name }}</td>
                         <td>{{ control_framework.description }}</td>
                         <td>
@@ -29,7 +31,7 @@
                                 <i class="fas fa-edit"></i>
                             </a>
                             <form action="{{ url_for('control_frameworks.delete', id=control_framework.id) }}" method="post" style="display:inline;">
-                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this framework?')">
+                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this control framework?')">
                                     <i class="fas fa-trash-alt"></i>
                                 </button>
                             </form>
@@ -37,7 +39,7 @@
                     </tr>
                 {% else %}
                     <tr>
-                        <td colspan="3" class="text-center">No control frameworks found.</td>
+                        <td colspan="4" class="text-center">No control frameworks found.</td>
                     </tr>
                 {% endfor %}
             </tbody>

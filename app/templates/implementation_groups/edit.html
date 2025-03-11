@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Implementation Group - Flask App{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h1 class="mb-4">Edit Implementation Group</h1>
+        <form action="{{ url_for('implementation_groups.edit', id=implementation_group.id) }}" method="post">
+            <div class="form-group">
+                <label for="framework_id">Framework:</label>
+                <select id="framework_id" name="framework_id" class="form-control" required>
+                    {% for framework in frameworks %}
+                        <option value="{{ framework.id }}" {% if framework.id == implementation_group.framework_id %}selected{% endif %}>{{ framework.number }} - {{ framework.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="number">Number:</label>
+                <input type="text" id="number" name="number" class="form-control" value="{{ implementation_group.number }}">
+            </div>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" class="form-control" value="{{ implementation_group.name }}" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" class="form-control" rows="4">{{ implementation_group.description }}</textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+        <a href="{{ url_for('implementation_groups.list') }}" class="btn btn-secondary mt-3">Back to List</a>
+    </div>
+{% endblock %}

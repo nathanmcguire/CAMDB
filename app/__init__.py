@@ -37,6 +37,8 @@ def create_app(config_class=None):
     from app.controllers.index import index_bp
     from app.controllers.assets import assets_bp
     from app.controllers.asset_types import asset_types_bp
+    from app.controllers.security_functions import security_functions_bp
+    from app.controllers.implementation_groups import implementation_groups_bp
     from app.controllers.controls import controls_bp
     from app.controllers.control_frameworks import control_frameworks_bp
     from app.controllers.safeguards import safeguards_bp
@@ -48,6 +50,8 @@ def create_app(config_class=None):
     app.register_blueprint(index_bp)
     app.register_blueprint(assets_bp)
     app.register_blueprint(asset_types_bp)
+    app.register_blueprint(security_functions_bp)
+    app.register_blueprint(implementation_groups_bp)
     app.register_blueprint(controls_bp)
     app.register_blueprint(control_frameworks_bp)
     app.register_blueprint(safeguards_bp)

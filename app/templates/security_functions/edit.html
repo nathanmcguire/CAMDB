@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Security Function - Flask App{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h1 class="mb-4">Edit Security Function</h1>
+        <form action="{{ url_for('security_functions.edit', id=security_function.id) }}" method="post">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" class="form-control" value="{{ security_function.name }}" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" class="form-control" rows="4">{{ security_function.description }}</textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Update</button>
+        </form>
+        <a href="{{ url_for('security_functions.list') }}" class="btn btn-secondary mt-3">Back to List</a>
+    </div>
+{% endblock %}

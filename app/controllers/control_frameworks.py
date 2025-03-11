@@ -16,11 +16,12 @@ def list():
 @control_frameworks_bp.route('/control_frameworks/create', methods=['GET', 'POST'])
 def create():
     if request.method == 'POST':
+        number = request.form['number']
         framework_name = request.form['name']
         description = request.form.get('description')
         if not framework_name:
             return render_template('control_frameworks/create.html', error="Framework name is required.")
-        new_framework = ControlFramework(name=framework_name, description=description)
+        new_framework = ControlFramework(number=number, name=framework_name, description=description)
         db.session.add(new_framework)
         db.session.commit()
         return redirect(url_for('control_frameworks.list'))  # Redirecting to the list of control frameworks
@@ -33,6 +34,7 @@ def edit(id):
     control_framework = ControlFramework.query.get_or_404(id)
 
     if request.method == 'POST':
+        control_framework.number = request.form['number']
         control_framework.name = request.form['name']
         control_framework.description = request.form.get('description')
         db.session.commit()

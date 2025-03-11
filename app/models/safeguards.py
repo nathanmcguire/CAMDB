@@ -7,7 +7,11 @@ class Safeguard(db.Model):
     __tablename__ = 'safeguards'  # Explicitly define the table name
     
     id = db.Column(db.Integer, primary_key=True)
+    number = db.Column(db.String(20), nullable=True)  # Safeguard number as a string
     control_id = db.Column(db.Integer, db.ForeignKey('controls.id'), nullable=False)
+    security_function_id = db.Column(db.Integer, db.ForeignKey('security_functions.id'), nullable=True)
+    asset_type_id = db.Column(db.Integer, db.ForeignKey('asset_types.id'), nullable=True)
+    implementation_group_id = db.Column(db.Integer, db.ForeignKey('implementation_groups.id'), nullable=True)
     name = db.Column(db.String(100), nullable=False)
     description = db.Column(db.String(255), nullable=True)
     
@@ -17,9 +21,12 @@ class Safeguard(db.Model):
     archived = db.Column(db.DateTime, nullable=True)  # Nullable, set when the safeguard is archived (for soft deletes)
 
     control = db.relationship('Control', backref=db.backref('safeguards', lazy=True))
+    security_function = db.relationship('SecurityFunction', backref=db.backref('safeguards', lazy=True))
+    asset_type = db.relationship('AssetType', backref=db.backref('safeguards', lazy=True))
+    implementation_group = db.relationship('ImplementationGroup', backref=db.backref('safeguards', lazy=True))
 
     def __repr__(self):
-        return f'<ControlSafeguard {self.name}>'
+        return f'<Safeguard {self.name}>'
     
     @property
     def created_local(self):

@@ -8,24 +8,24 @@
         <h1 class="mb-4">Edit Control</h1>
         <form action="{{ url_for('controls.edit', id=control.id) }}" method="post">
             <div class="form-group">
-                <label for="number">Number:</label>
-                <input type="text" id="number" name="number" class="form-control" value="{{ control.number }}" required>
+                <label for="framework_id">Control Framework:</label>
+                <select id="framework_id" name="framework_id" class="form-control" required>
+                    {% for framework in frameworks %}
+                        <option value="{{ framework.id }}" {% if framework.id == control.framework_id %}selected{% endif %}>{{ framework.number }}</option>
+                    {% endfor %}
+                </select>
             </div>
             <div class="form-group">
-                <label for="name">Name:</label>
+                <label for="number">Control Number:</label>
+                <input type="text" id="number" name="number" class="form-control" value="{{ control.number }}">
+            </div>
+            <div class="form-group">
+                <label for="name">Control Name:</label>
                 <input type="text" id="name" name="name" class="form-control" value="{{ control.name }}" required>
             </div>
             <div class="form-group">
                 <label for="description">Description:</label>
                 <textarea id="description" name="description" class="form-control" rows="4">{{ control.description }}</textarea>
-            </div>
-            <div class="form-group">
-                <label for="framework_id">Framework:</label>
-                <select id="framework_id" name="framework_id" class="form-control" required>
-                    {% for framework in frameworks %}
-                        <option value="{{ framework.id }}" {% if framework.id == control.framework_id %}selected{% endif %}>{{ framework.name }}</option>
-                    {% endfor %}
-                </select>
             </div>
             <button type="submit" class="btn btn-primary">Update</button>
         </form>

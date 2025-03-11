@@ -9,12 +9,15 @@ class Control(db.Model):
     number = db.Column(db.String(20), nullable=True)  # Control number as a string
     name = db.Column(db.String(100), nullable=False)
     description = db.Column(db.String(255), nullable=True)  # Control description
-    framework_id = db.Column(db.Integer, db.ForeignKey('control_frameworks.id', name='fk_controls_framework_id'), nullable=False)
-     
+    framework_id = db.Column(db.Integer, db.ForeignKey('control_frameworks.id'), nullable=False)
+    
     # Use func.now() for both created and updated to automatically set timestamps
     created = db.Column(db.DateTime, default=func.now(), nullable=False)
     updated = db.Column(db.DateTime, default=func.now(), onupdate=func.now(), nullable=False)  # Default func.now()
     archived = db.Column(db.DateTime, nullable=True)  # Nullable, set when the asset is archived (for soft deletes)
+
+    # Relationship with control framework
+    framework = db.relationship('ControlFramework', backref=db.backref('controls', lazy=True))
 
     def __repr__(self):
         return f'<Control {self.name}>'
