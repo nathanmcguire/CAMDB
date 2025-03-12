@@ -14,6 +14,7 @@ class Safeguard(db.Model):
     implementation_group_id = db.Column(db.Integer, db.ForeignKey('implementation_groups.id'), nullable=True)
     name = db.Column(db.String(100), nullable=False)
     description = db.Column(db.String(255), nullable=True)
+    framework_id = db.Column(db.Integer, db.ForeignKey('control_frameworks.id'), nullable=False)  # Add this line
     
     # Use func.now() for both created and updated to automatically set timestamps
     created = db.Column(db.DateTime, default=func.now(), nullable=False)
@@ -24,6 +25,7 @@ class Safeguard(db.Model):
     security_function = db.relationship('SecurityFunction', backref=db.backref('safeguards', lazy=True))
     asset_type = db.relationship('AssetType', backref=db.backref('safeguards', lazy=True))
     implementation_group = db.relationship('ImplementationGroup', backref=db.backref('safeguards', lazy=True))
+    framework = db.relationship('ControlFramework', backref=db.backref('safeguards', lazy=True))  # Add this line
 
     def __repr__(self):
         return f'<Safeguard {self.name}>'

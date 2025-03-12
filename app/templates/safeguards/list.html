@@ -7,31 +7,36 @@
     <div class="container mt-4">
         <h1 class="mb-4">Safeguard List</h1>
         
-        <a href="{{ url_for('safeguards.create') }}" class="btn btn-primary mb-3">
+<div class="mb-3">
+        <a href="{{ url_for('safeguards.create') }}" class="btn btn-primary">
             <i class="fas fa-plus"></i> Create
         </a>
+<a href="{{ url_for('safeguards.import_safeguards') }}" class="btn btn-secondary">
+                <i class="fas fa-file-import"></i> Import
+            </a>
+        </div>
         
         <table class="table table-striped table-bordered">
             <thead class="thead-dark">
                 <tr>
-                    <th>Control</th>
                     <th>Number</th>
                     <th>Asset Type</th>
                     <th>Security Function</th>
                     <th>Name</th>
-                    <th>Implementation Group</th>
+                    <th>Description</th>
+                    <th>IG</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
                 {% for safeguard in safeguards %}
-                    <tr title="{{ safeguard.description }}">
-                        <td>{{ safeguard.control.framework.number }}.{{ safeguard.control.number }} {{ safeguard.control.name }}</td>
-                        <td>{{ safeguard.number }}</td>
+                    <tr>
+                        <td title="{{ safeguard.control.name }}">{{ safeguard.control.framework.number }}.{{ safeguard.control.number }}.{{ safeguard.number }}</td>
                         <td>{{ safeguard.asset_type.name if safeguard.asset_type else '' }}</td>
                         <td>{{ safeguard.security_function.name if safeguard.security_function else '' }}</td>
                         <td>{{ safeguard.name }}</td>
-                        <td>{{ safeguard.number }}</td>
+                        <td>{{ safeguard.description }}</td>
+                        <td title="{{ safeguard.implementation_group.framework.number if safeguard.implementation_group else '' }} {{ safeguard.implementation_group.name if safeguard.implementation_group else '' }}">{{ safeguard.implementation_group.number if safeguard.implementation_group else '' }}</td>
                         <td>
                             <a href="{{ url_for('safeguards.edit', id=safeguard.id) }}" class="btn btn-warning btn-sm">
                                 <i class="fas fa-edit"></i>

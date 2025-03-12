@@ -8,7 +8,12 @@
 <body>
     <h1>{{ safeguard.name }}</h1>
     <p>Description: {{ safeguard.description }}</p>
-    <p>Control ID: {{ safeguard.control_id }}</p>
+    <p>Framework: {{ safeguard.framework.number }} - {{ safeguard.framework.name }}</p>
+    <p>Control: {{ safeguard.control.framework.number }}.{{ safeguard.control.number }} {{ safeguard.control.name }}</p>
+    <p>Number: {{ safeguard.number }}</p>
+    <p>Asset Type: {{ safeguard.asset_type.name if safeguard.asset_type else 'N/A' }}</p>
+    <p>Security Function: {{ safeguard.security_function.name if safeguard.security_function else 'N/A' }}</p>
+    <p>Implementation Group: {{ safeguard.implementation_group.number if safeguard.implementation_group else 'N/A' }}</p>
     <p>Created: {{ safeguard.created }}</p>
     <p>Updated: {{ safeguard.updated }}</p>
     <p>Archived: {{ safeguard.archived }}</p>

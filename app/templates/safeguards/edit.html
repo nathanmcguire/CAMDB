@@ -7,10 +7,18 @@
         <h1 class="mb-4">Edit Safeguard</h1>
         <form action="{{ url_for('safeguards.edit', id=safeguard.id) }}" method="post">
             <div class="form-group">
+                <label for="framework_id">Framework:</label>
+                <select id="framework_id" name="framework_id" class="form-control" required>
+                    {% for framework in frameworks %}
+                        <option value="{{ framework.id }}" {% if framework.id == safeguard.framework_id %}selected{% endif %}>{{ framework.number }} - {{ framework.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
                 <label for="control_id">Control:</label>
                 <select id="control_id" name="control_id" class="form-control" required>
                     {% for control in controls %}
-                        <option value="{{ control.id }}" {% if control.id == safeguard.control_id %}selected{% endif %}>{{ control.framework.number }}.{{ control.number }} {{ control.name }}</option>
+                        <option value="{{ control.id }}" data-framework="{{ control.framework_id }}" {% if control.id == safeguard.control_id %}selected{% endif %}>{{ control.framework.number }}.{{ control.number }} {{ control.name }}</option>
                     {% endfor %}
                 </select>
             </div>
@@ -46,7 +54,7 @@
                 <label for="implementation_group_id">Implementation Group:</label>
                 <select id="implementation_group_id" name="implementation_group_id" class="form-control">
                     {% for implementation_group in implementation_groups %}
-                        <option value="{{ implementation_group.id }}" {% if implementation_group.id == safeguard.implementation_group_id %}selected{% endif %}>{{ implementation_group.framework.number }} - {{ implementation_group.name }}</option>
+                        <option value="{{ implementation_group.id }}" data-framework="{{ implementation_group.framework_id }}" {% if implementation_group.id == safeguard.implementation_group_id %}selected{% endif %}>{{ implementation_group.framework.number }} - {{ implementation_group.name }}</option>
                     {% endfor %}
                 </select>
             </div>
@@ -54,4 +62,23 @@
         </form>
         <a href="{{ url_for('safeguards.list') }}" class="btn btn-secondary mt-3">Back to List</a>
     </div>
+
+    <script>
+        document.getElementById('framework_id').addEventListener('change', function() {
+            var frameworkId = this.value;
+            var controlOptions = document.getElementById('control_id').options;
+            var implementationGroupOptions = document.getElementById('implementation_group_id').options;
+
+            for (var i = 0; i < controlOptions.length; i++) {
+                controlOptions[i].style.display = controlOptions[i].getAttribute('data-framework') == frameworkId ? 'block' : 'none';
+            }
+
+            for (var i = 0; i < implementationGroupOptions.length; i++) {
+                implementationGroupOptions[i].style.display = implementationGroupOptions[i].getAttribute('data-framework') == frameworkId ? 'block' : 'none';
+            }
+        });
+
+        // Trigger change event on page load to filter options based on the selected framework
+        document.getElementById('framework_id').dispatchEvent(new Event('change'));
+    </script>
 {% endblock %}
