@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}{% endblock %}
+{% block content %}
+    {{ current_user.username if current_user.is_authenticated else 'Anonymous' }}!
+    {% for post in posts %}
+        {{ post.author.username }} says: {{ post.body }}
+    {% endfor %}
+    <a href="{{ url_for('index.index') }}">Home</a>
+    <a href="{{ url_for('assets.list') }}">Assets</a>
+    <a href="{{ url_for('asset_types.list') }}">Asset Types</a>
+    <a href="{{ url_for('security_functions.list') }}">Security Functions</a>
+    <a href="{{ url_for('implementation_groups.list') }}">Implementation Groups</a>
+    <a href="{{ url_for('controls.list') }}">Controls</a>
+    <a href="{{ url_for('control_frameworks.list') }}">Control Frameworks</a>
+    <a href="{{ url_for('safeguards.list') }}">Safeguards</a>
+    <a href="{{ url_for('microblog.index') }}">Microblog</a>
+    {% if current_user.is_anonymous %}
+    <a href="{{ url_for('users.login') }}">Login</a>
+    {% else %}
+    <a href="{{ url_for('users.profile', username=current_user.username) }}">Profile</a>
+    <a href="{{ url_for('users.logout') }}">Logout</a>
+    {% endif %}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                {{ message }}
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+{% endblock %}
