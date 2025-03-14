@@ -1,36 +1,3 @@
-html, body {
-  height: 100%;
-  margin: 0;
-}
-
-.sidebar {
-  width: 280px;
-  height: calc(100vh - 50px); /* Adjust for header height */
-  overflow-y: auto;
-}
-
-.header {
-  height: 50px;
-  width: 100%;
-}
-
-.content {
-  flex: 1;
-  padding: 20px;
-}
-
-/* Ensure sidebar and content are aligned side by side */
-.main-container {
-  display: flex;
-  height: calc(100vh - 50px); /* Adjust for header height */
-}
-
-.main-content {
-  flex: 1;
-  overflow-y: auto;
-}
-
-
 .bd-placeholder-img {
   font-size: 1.125rem;
   text-anchor: middle;
@@ -107,5 +74,3 @@ html, body {
 .bd-mode-toggle .dropdown-menu .active .bi {
   display: block !important;
 }
-
-
