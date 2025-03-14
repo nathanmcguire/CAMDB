@@ -1,35 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <title>Bootstrap Example</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <style>
-        html, body {
-            height: 100%;
-        }
-    </style>
-</head>
+{% block title %}Home - My Website{% endblock %}
 
-<body>
-    <div class="container-fluid d-flex flex-column h-100">
-        <div class="row">
-            <div class="col bg-primary">
-                <p>Header</p>
-            </div>
-        </div>
-        <div class="row flex-grow-1">
-            <div class="col-sm-4 bg-secondary sidebar">
-                <p>Sidebar</p>
-            </div>
-            <div class="col">
-                <p>Content</p>
-            </div>
-        </div>
-    </div>
-</body>
-
-</html>
+{% block content %}
+<h2>Welcome to the Home Page!</h2>
+<p>This is the main content of the home page.</p>
+<p>Lorem ipsum odor amet, consectetuer adipiscing elit. Duis ad pellentesque nisi enim ullamcorper litora nostra.
+    Efficitur finibus placerat aliquet metus feugiat dui? Elit libero facilisis sagittis aenean dolor curabitur.
+    Torquent class class curabitur rutrum primis natoque. Magnis elit molestie id mauris erat. Eu cras maecenas; ad
+    platea ipsum in. Faucibus odio torquent fames sed duis facilisis torquent efficitur. Nascetur volutpat tellus amet
+    urna justo sapien pretium urna.</p>
+<p>Consectetur habitant ac praesent, sollicitudin blandit nec cubilia dignissim cubilia. Torquent id torquent vulputate
+    suspendisse ac sem varius orci. Amet orci cubilia fusce tempus egestas tellus inceptos. Adipiscing ligula placerat
+    auctor nisi sodales in rhoncus. Class elementum elementum euismod varius nisl suspendisse vehicula fringilla cras.
+    Rhoncus euismod fringilla tempus inceptos interdum vestibulum eros fames. Vel taciti cras vitae interdum mauris.
+    Interdum quam ligula posuere tempus magna ex eros mauris?</p>
+<p>Tellus penatibus eu taciti maecenas himenaeos ligula elementum. Pharetra himenaeos turpis potenti facilisi aenean
+    sodales facilisis sapien nulla. Dignissim turpis potenti sit sapien parturient nec est adipiscing. Mollis mauris eu
+    maecenas sit habitant ipsum nec. Montes ac eu pharetra amet tempor, blandit mollis conubia. Erat consectetur eros
+    rutrum volutpat aliquet per. Volutpat ante placerat ullamcorper aptent adipiscing eros ornare. Luctus dis ridiculus;
+    dignissim mi quis risus class inceptos.</p>
+<p>Vitae at egestas euismod tortor metus hac dictum parturient. Lacus luctus scelerisque posuere parturient viverra.
+    Suscipit ac interdum enim sit leo platea. Pulvinar a leo pretium nullam, urna mattis parturient convallis augue.
+    Ultrices taciti libero semper erat ligula inceptos arcu curabitur. Justo per cursus finibus accumsan netus inceptos
+    a non. Bibendum laoreet quis, eros neque semper ante netus lobortis. Morbi cursus vitae facilisi curae porttitor
+    molestie velit sapien. Fermentum praesent aliquam himenaeos sed aptent risus.</p>
+<p>Phasellus nisl nisl rutrum natoque habitasse. Arcu laoreet augue habitant ante porta facilisi iaculis nec. Consequat
+    dui erat convallis urna hendrerit facilisis litora. Pellentesque ullamcorper accumsan, diam curae vitae etiam. Nibh
+    pulvinar rhoncus; accumsan tortor etiam metus massa eget potenti. Fermentum vestibulum ullamcorper enim aliquam
+    primis varius? Faucibus nec augue nisi; sed faucibus lobortis. Augue sapien eros sodales condimentum sociosqu duis
+    libero curae.</p>
+{% endblock %}

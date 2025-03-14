@@ -52,6 +52,15 @@ FlaskCMDB is a simple Configuration Management Database (CMDB) application built
 2. Register a new user account or log in with an existing account.
 3. Start managing your configuration items.
 
+## Feature ideas
+- Focus on CIS Controls
+- Leverage API's to bring in data from systems like Active Directory, Service Desk Plus, Meraki, and vSphere
+- Assets, Configurations, Changes across environment
+- Alerting and reporting unauthorized config changes, asset lifecycle tracking
+- RBAC user levels
+- CLI/API
+- SSO Azure Ad
+
 
 
 ## Contributing
