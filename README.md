@@ -1,4 +1,4 @@
-# FlaskCMDB
+# Configuration and Asset Management Database
 
 FlaskCMDB is a simple Configuration Management Database (CMDB) application built with Flask. It allows users to manage and track configuration items (CIs) within their IT environment.
 
