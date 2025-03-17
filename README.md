@@ -13,7 +13,7 @@ FlaskCMDB is a simple Configuration Management Database (CMDB) application built
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/yourusername/FlaskCMDB.git
+    git clone https://github.com/nathanmcguire/CAMDB.git
     cd FlaskCMDB
     ```
 
